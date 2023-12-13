@@ -8,11 +8,11 @@ import {WebService} from './web.service';
 })
 export class PlayersComponent {
 
-  players_list: any;
+  players_list: any = [];
 
   constructor(public webService: WebService) { }
 
   ngOnInit(){
-    this.webService.getPlayers();
+    this.players_list = this.webService.getPlayers();
   }
 }
