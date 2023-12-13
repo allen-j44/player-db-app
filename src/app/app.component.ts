@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlayersComponent } from './platers.component';
+import { PlayersComponent } from './players.component';
 
 @Component({
   selector: 'app-root',
