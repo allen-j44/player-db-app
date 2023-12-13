@@ -14,17 +14,22 @@ export class PlayersComponent {
   constructor(public webService: WebService) { }
 
   ngOnInit(){
+    if (sessionStorage['page']){
+      this.page = Number (sessionStorage['page'])
+    }
     this.players_list = this.webService.getPlayers(this.page);
   }
   previousPage() {
     if (this.page > 1) {
       this.page = this.page - 1;
+      sessionStorage['page'] = this.page;
       this.players_list = this.webService.getPlayers(this.page);
     }
 
   }
   nextPage() {
     this.page = this.page + 1;
+    sessionStorage['page'] = this.page;
     this.players_list = this.webService.getPlayers(this.page);
 
   }
