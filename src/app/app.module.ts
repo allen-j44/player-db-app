@@ -8,6 +8,7 @@ import {WebService} from './web.service';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { PlayerComponent } from './player.component';
 
 
 var routes: any = [
@@ -18,13 +19,17 @@ var routes: any = [
   {
     path: 'players',
     component: PlayersComponent
+  },
+  {
+    path: 'players/:id',
+    component: PlayerComponent
   }
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent, PlayersComponent, HomeComponent
+    AppComponent, PlayersComponent, HomeComponent, PlayerComponent
   ],
   imports: [
     BrowserModule,

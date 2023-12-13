@@ -4,12 +4,17 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class WebService {
 
-  players_list: any;
 
   constructor(private http: HttpClient) {}
 
-  getPlayers() {
-    return this.http.get('http://127.0.0.1:5000/api/v1.0/players');
+  getPlayers(page: number) {
+    return this.http.get('http://127.0.0.1:5000/api/v1.0/players?pn=' +
+                          page);
+
+  }
+
+  getPlayer(id: any) {
+    return this.http.get('http://127.0.0.1:5000/api/v1.0/players/' + id);
 
   }
 
