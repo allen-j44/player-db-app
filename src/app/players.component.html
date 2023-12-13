@@ -1,2 +1,11 @@
 <h1>Players DB</h1>
+<h2> There are {{ players_list.length }} players in the database</h2>
+<h2>The first player {{ players_list[0].name }} </h2>
 
+<div *ngFor = "let player of players_list">
+  <p>
+    Name: {{ player.name }}<br>
+    Club: {{ player.club }}<br>
+    Age: {{ player.age }}
+  </p>
+</div>
