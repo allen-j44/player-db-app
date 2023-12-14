@@ -1,40 +1,52 @@
 <div class = "container">
-  <div class=""row>
+  <div class="row justify-content-center">
     <div class = "col-sm-12">
-      <div *ngFor = "let player of players_list | async">
-        <div class = "card text-black bg primary mb-3"
+      <div *ngFor = "let player of players_list | async" class = "col-md-4 mb-3">
+        <div class = "card text-black mb-3 mx-auto"
              style = "cursor: pointer"
              [routerLink] = "['/players', player._id]">
           <div class = "header text-center" style = "background-color: #00cc00">
-            {{ player.name }}
+            <br>
+
+            <strong>{{ player.name }}</strong>
+            <br><br>
           </div>
           <div class = "card-body">
-            Team: {{ player.team }} <br>
-            Age: {{ player.age }} <br>
-            Appearances: {{ player.appearances }}
+            <strong>Player Details:</strong><br><br>
+            <strong>Current Club: </strong> {{ player.team }} <br>
+            <strong>Position: </strong>{{ player.position }} <br>
+            <strong>Preferred Foot: </strong>{{ player.preferredFoot }} <br>
+            <strong>Age: </strong>{{ player.age }} <br>
+            <strong>Appearances:</strong>{{ player.appearances }}
           </div>
           <div class = "card-footer" style = "background-color: #00cc00" >
-            Managers Comments: <br>
-            {{ player.managersComments }}
+            <br>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class = "row">
-    <div class="col-sn-6">
-      <button class = "btn btn-primary"
-              (click) = "previousPage()">
-              Previous
-      </button>
-    </div>
 
-    <div class="col-sn-6 text-end">
-      <button class = "btn btn-primary"
-              (click) = "nextPage()">
-              Next
-      </button>
-    </div>
-  </div>
 
 </div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class = "d-flex justify-content-between">
+      <button class="btn btn-primary" (click)="previousPage()">Previous</button>
+      <button class="btn btn-primary" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="div">
+  <div class="form-group">
+    <label for="playerName">PlayerName</label>
+    <input id="playerName" type="text" class="form-control" [(value)]="playerName"/>
+    <button type="submit" class = "btn btn-primary" (onclick)="createNewPlayer()">Save</button>
+  </div>
+</div>
+
+
+
+

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {WebService} from './web.service';
 import {ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'player',
@@ -9,14 +10,49 @@ import {ActivatedRoute } from '@angular/router';
 })
 export class PlayerComponent {
 
-  players_list: any = [];
+  public commentForm: any;
+
+  public player: any = [];
+  public playerIdParam: string = "";
+  public comments: any = [];
 
   constructor(public webService: WebService,
-              private route: ActivatedRoute) { }
-
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) { }
   ngOnInit(){
-    this.players_list = this.webService.getPlayer(
-      this.route.snapshot.params['id']
-    );
+    this.playerIdParam = this.route.snapshot.params['id'];
+    this.commentForm = this.formBuilder.group({
+      comment: ['', Validators.required]
+    });
+
+    this.player = this.webService.getPlayer(this.playerIdParam);
   }
+
+
+  onSubmit() {
+    console.log(this.commentForm.value);
+
+    // wrong call
+    this.webService.postComment(this.playerIdParam, this.commentForm.value)
+      .subscribe( (_: any) => {
+      this.commentForm.reset();
+      //this.comments = this.webService.getmanagersComments(this.playerIdParam);
+      this.player = this.webService.getPlayer(this.playerIdParam);
+    });
+
+  }
+
+  isInvalid(control: any) {
+    return this.commentForm.controls[control].invalid && this.commentForm.controls[control].touched;
+  }
+
+  isUntouched() {
+    return this.commentForm.controls.comment.pristine
+  }
+
+  isIncomplete(){
+    return this.isInvalid('comment') ||
+    this.isUntouched();
+  }
+
 }

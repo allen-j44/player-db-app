@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { PlayerComponent } from './player.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 var routes: any = [
@@ -35,7 +36,9 @@ var routes: any = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [WebService],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ export class PlayersComponent {
 
   players_list: any = [];
   page: number = 1;
+  public playerName: any = "";
 
   constructor(public webService: WebService) { }
 
@@ -19,6 +20,7 @@ export class PlayersComponent {
     }
     this.players_list = this.webService.getPlayers(this.page);
   }
+
   previousPage() {
     if (this.page > 1) {
       this.page = this.page - 1;
@@ -31,6 +33,14 @@ export class PlayersComponent {
     this.page = this.page + 1;
     sessionStorage['page'] = this.page;
     this.players_list = this.webService.getPlayers(this.page);
+  }
 
+  createNewPlayer(){
+    const playerData = {
+      playerName: this.playerName
+    }
+console.log("create called");
+
+    this.webService.postPlayer(playerData);
   }
 }
