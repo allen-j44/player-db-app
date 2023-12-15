@@ -11,7 +11,7 @@ import { HomeComponent } from './home.component';
 import { PlayerComponent } from './player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
-
+import { NavComponent } from './nav.component';
 
 var routes: any = [
   {
@@ -31,7 +31,7 @@ var routes: any = [
 
 @NgModule({
   declarations: [
-    AppComponent, PlayersComponent, HomeComponent, PlayerComponent
+    AppComponent, PlayersComponent, HomeComponent, PlayerComponent, NavComponent
   ],
   imports: [
     BrowserModule,

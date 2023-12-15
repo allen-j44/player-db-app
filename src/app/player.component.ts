@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {WebService} from './web.service';
 import {ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
+
 export class PlayerComponent {
 
   public commentForm: any;
@@ -18,7 +20,8 @@ export class PlayerComponent {
 
   constructor(public webService: WebService,
               private route: ActivatedRoute,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              public authService: AuthService) { }
   ngOnInit(){
     this.playerIdParam = this.route.snapshot.params['id'];
     this.commentForm = this.formBuilder.group({

@@ -1,0 +1,34 @@
+<div class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
+  <span class = "navbar-brand">
+      Northern Ireland Players Database
+  </span>
+  <div class = "ml-auto">
+    <ul class = "navbar-nav">
+      <li class = "navbar-item">
+          <a routerLink = "/" class = "nav-link"> <strong>Home Page</strong></a>
+      </li>
+      <li class = "nav-item">
+          <a routerLink = "/players" class = "nav-link"> <strong>Players Database</strong></a>
+      </li>
+    </ul>
+
+    <div class = "ml-auto">
+      <div class = "form-inline" style = "margin-right: 10px">
+
+        <ng-container *ngIf = "authService.isAuthenticated$ | async; else loggedOut">
+           <button class = "btn btn-outline-light" (click) = "authService.logout()">
+             Logout
+           </button>
+           <hr>
+        </ng-container>
+
+        <ng-template #loggedOut>
+          <button class="class btn-btn-outline-light" (click) = "authService.loginWithRedirect({ appState: {target: this.router.url}})">
+          Login
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
