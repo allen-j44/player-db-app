@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { PlayerComponent } from './player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 var routes: any = [
@@ -38,7 +39,11 @@ var routes: any = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-idn0erkobo8ef7ub.uk.auth0.com',
+      clientId: 'UZ5dgj9R9498ZCnRqkVWXiKdoNFLqjtG'
+    })
   ],
   providers: [WebService],
   bootstrap: [AppComponent]
