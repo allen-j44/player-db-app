@@ -4,12 +4,11 @@
     <div class = "col-sm-">
       <div *ngFor = "let player of players_list | async" class = "col-md-10 mb-3">
         <div class = "card text-black mb-3 mx-auto"
-             style = "cursor: pointer"
-             [routerLink] = "['/players', player._id]">
+             style = "cursor: pointer">
           <div class = "header text-center" style = "background-color: #00cc00">
             <br>
 
-            <strong>{{ player.name }}</strong>
+            <strong [routerLink] = "['/players', player._id]">{{ player.name }}</strong>
             <br><br>
           </div>
           <div class = "card-body">

@@ -45,6 +45,7 @@ console.log("create called");
   }
 
   deletePlayer(playerId: string){
-    //this.webService.deletePlayer();
+    this.webService.deletePlayer(playerId);
+    location.reload();
   }
 }
