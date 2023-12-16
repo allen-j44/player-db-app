@@ -43,4 +43,8 @@ console.log("create called");
 
     this.webService.postPlayer(playerData);
   }
+
+  deletePlayer(playerId: string){
+    //this.webService.deletePlayer();
+  }
 }
