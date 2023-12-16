@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {WebService} from './web.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'players',
@@ -12,7 +13,7 @@ export class PlayersComponent {
   page: number = 1;
   public playerName: any = "";
 
-  constructor(public webService: WebService) { }
+  constructor(public webService: WebService, public authService: AuthService) { }
 
   ngOnInit(){
     if (sessionStorage['page']){
