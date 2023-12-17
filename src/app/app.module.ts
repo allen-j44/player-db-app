@@ -1,6 +1,10 @@
+/* Imports */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+/* Imports for all components used such as the AUth0 and Navigation for example as we;;as for the RoutingModule */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './players.component';
@@ -30,6 +34,8 @@ var routes: any = [
 
 
 @NgModule({
+
+  /* Declarations for the App */
   declarations: [
     AppComponent, PlayersComponent, HomeComponent, PlayerComponent, NavComponent
   ],

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [];
 
+/* App Routing*/
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

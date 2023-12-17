@@ -8,9 +8,13 @@
           <div class = "header text-center" style = "background-color: #00cc00">
             <br>
 
+            <!-- Router Link to take you to the Ini=dividual Player -->
             <strong [routerLink] = "['/players', player._id]">{{ player.name }}</strong>
+
+
             <br><br>
           </div>
+          <!--  Player Info Card-->
           <div class = "card-body">
             <strong>Player Info:</strong><br><br>
             <strong>Position: </strong>{{ player.position }} <br>
@@ -36,6 +40,8 @@
   </div>
 </div>
 
+
+<!-- Form started to be made for Adding a New Player -->
 <div class="div">
   <div class="form-group">
     <label for="playerName">PlayerName</label>

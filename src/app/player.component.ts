@@ -1,3 +1,5 @@
+/* d */
+
 import { Component } from '@angular/core';
 import {WebService} from './web.service';
 import {ActivatedRoute } from '@angular/router';
@@ -18,6 +20,8 @@ export class PlayerComponent {
   public playerIdParam: string = "";
   public comments: any = [];
 
+  /* Constructors for calling the webService, AuthService, and FormBuilder */
+
   constructor(public webService: WebService,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
@@ -35,7 +39,6 @@ export class PlayerComponent {
   onSubmit() {
     console.log(this.commentForm.value);
 
-    // wrong call
     this.webService.postComment(this.playerIdParam, this.commentForm.value)
       .subscribe( (_: any) => {
       this.commentForm.reset();
@@ -44,6 +47,8 @@ export class PlayerComponent {
     });
 
   }
+
+  /* Validation to confirm that form data has been entered and done so correctly */
 
   isInvalid(control: any) {
     return this.commentForm.controls[control].invalid && this.commentForm.controls[control].touched;

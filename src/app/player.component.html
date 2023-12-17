@@ -35,6 +35,8 @@
             else loggedOut">
 
             <h2> Enter Text Here to add another Comment</h2>
+
+            <!--  Form for Adding a Comment and Error Handling for if the text field is not filled in-->
             <form [formGroup] = "commentForm" (ngSubmit) = "onSubmit()">
               <div class = "form-group">
                 <label class = "bold-label" for = "comment"></label>

@@ -2,6 +2,7 @@
   <span class = "navbar-brand">
       Northern Ireland Players Database
   </span>
+  <!--  Navigation Bar with Links to the Players and HomePage Components-->
   <div class = "ml-auto">
     <ul class = "navbar-nav">
       <li class = "navbar-item">
@@ -14,6 +15,8 @@
 
     <div class = "ml-auto">
       <div class = "form-inline" style = "margin-right: 10px">
+
+        <!--  Authentication for the Login and Logout Buttons for the Navigation Bar-->
 
         <ng-container *ngIf = "authService.isAuthenticated$ | async; else loggedOut">
            <button class = "btn btn-outline-light" (click) = "authService.logout()">
